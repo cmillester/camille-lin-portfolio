@@ -1,0 +1,194 @@
+/*
+ * Dedicated print stylesheet for the downloadable resume PDF.
+ * Rendered standalone (no site header/footer/nav/buttons) via WeasyPrint.
+ * Colors match the site's approved palette (dark-charcoal body, muted teal
+ * headings) at sizes tuned for print rather than screen.
+ */
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../../public/fonts/outfit/outfit-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("../../public/fonts/outfit/outfit-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../../public/fonts/instrument-sans/instrument-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../../public/fonts/instrument-sans/instrument-sans-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../../public/fonts/instrument-sans/instrument-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@page {
+  size: Letter;
+  margin: 0.58in;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+body {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.36;
+  letter-spacing: normal;
+  word-spacing: normal;
+  color: #292524; /* dark charcoal, matches site --color-ink */
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: normal;
+}
+
+h1 {
+  font-size: 19pt;
+  text-align: center;
+}
+
+.contact {
+  text-align: center;
+  font-size: 10pt;
+  color: #55524d; /* muted, matches site --color-muted */
+  margin-top: 3pt;
+}
+
+.contact a {
+  color: #2f5f6f; /* muted teal, matches site --color-teal */
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.header-block {
+  border-bottom: 1pt solid #ddd8d0;
+  padding-bottom: 6pt;
+  margin-bottom: 8pt;
+}
+
+h2 {
+  font-size: 14pt;
+  color: #2f5f6f;
+  border-bottom: 0.75pt solid #cfe3e6;
+  padding-bottom: 3pt;
+  margin-bottom: 4pt;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+section {
+  margin-bottom: 6pt;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+p.summary {
+  margin: 0;
+}
+
+.role {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 4pt;
+}
+
+.role:last-child {
+  margin-bottom: 0;
+}
+
+.role h3 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #292524;
+}
+
+.role .dates {
+  font-size: 9.5pt;
+  font-weight: 500;
+  color: #55524d;
+  margin-top: 0.5pt;
+}
+
+.role .focus {
+  font-size: 9.5pt;
+  font-style: italic;
+  color: #2f5f6f;
+  margin-top: 1pt;
+}
+
+ul.bullets {
+  margin: 4pt 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.bullets li {
+  position: relative;
+  padding-left: 12pt;
+  margin-bottom: 2pt;
+  orphans: 2;
+  widows: 2;
+}
+
+ul.bullets li:last-child {
+  margin-bottom: 0;
+}
+
+ul.bullets li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #2f5f6f;
+}
+
+dl.group {
+  margin: 0;
+}
+
+dl.group > div {
+  margin-bottom: 4pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+dl.group > div:last-child {
+  margin-bottom: 0;
+}
+
+dt {
+  display: inline;
+  font-weight: 600;
+}
+
+dd {
+  display: inline;
+  margin: 0;
+}
